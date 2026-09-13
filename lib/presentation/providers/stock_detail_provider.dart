@@ -37,8 +37,7 @@ class ChartPeriodNotifier extends Notifier<ChartPeriod> {
 
 // In-memory cache of already-fetched HTML pages per symbol.
 // Switching from 1개월 → 1년 reuses pages 1–2 instead of re-downloading them.
-final dailyPriceCacheProvider =
-NotifierProvider.family<DailyPriceCacheNotifier, Map<int, List<DailyPrice>>, String>(
+final dailyPriceCacheProvider = NotifierProvider.family<DailyPriceCacheNotifier, Map<int, List<DailyPrice>>, String>(
   DailyPriceCacheNotifier.new,
 );
 

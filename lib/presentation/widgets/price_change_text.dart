@@ -1,7 +1,6 @@
 import 'package:edencrew_assignment_starter/core/utils/number_formatter.dart';
 import 'package:edencrew_assignment_starter/core/utils/price_change_helper.dart';
 import 'package:edencrew_assignment_starter/domain/entities/stock_price.dart';
-import 'package:edencrew_assignment_starter/theme/app_typography.dart';
 import 'package:edencrew_assignment_starter/theme/theme.dart';
 import 'package:flutter/material.dart';
 

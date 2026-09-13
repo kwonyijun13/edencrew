@@ -1,5 +1,4 @@
 import 'package:edencrew_assignment_starter/domain/entities/daily_price.dart';
-import 'package:edencrew_assignment_starter/theme/app_colors.dart';
 import 'package:edencrew_assignment_starter/theme/theme.dart';
 import 'package:flutter/material.dart';
 

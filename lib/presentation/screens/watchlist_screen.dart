@@ -82,7 +82,7 @@ class WatchlistScreen extends ConsumerWidget {
             ),
             data: (_) => ListView.separated(
               itemCount: sortedEntries.length,
-              separatorBuilder: (_, __) => Divider(
+              separatorBuilder: (_, _) => Divider(
                 height: 1,
                 color: colors.borderSubtle,
                 indent: dimens.space4,

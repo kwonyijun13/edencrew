@@ -1,6 +1,5 @@
 import 'package:edencrew_assignment_starter/presentation/models/watchlist_sort.dart';
 import 'package:edencrew_assignment_starter/presentation/providers/watchlist_sort_provider.dart';
-import 'package:edencrew_assignment_starter/theme/app_typography.dart';
 import 'package:edencrew_assignment_starter/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

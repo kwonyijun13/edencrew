@@ -8,7 +8,6 @@ import 'package:edencrew_assignment_starter/presentation/widgets/candlestick_cha
 import 'package:edencrew_assignment_starter/presentation/widgets/favorite_button.dart';
 import 'package:edencrew_assignment_starter/presentation/widgets/price_change_text.dart';
 import 'package:edencrew_assignment_starter/presentation/widgets/stock_subtitle.dart';
-import 'package:edencrew_assignment_starter/theme/app_typography.dart';
 import 'package:edencrew_assignment_starter/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,7 +30,7 @@ class StockDetailScreen extends ConsumerWidget {
       body: SafeArea(
         child: detailAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (_, __) => Center(
+          error: (_, _) => Center(
             child: Text(
               '종목 정보를 불러오지 못했습니다',
               style: TextStyle(color: colors.textSecondary),

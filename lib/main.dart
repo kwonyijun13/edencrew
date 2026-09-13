@@ -1,4 +1,3 @@
-import 'package:edencrew_assignment_starter/data/datasources/naver/naver_stock_datasource.dart';
 import 'package:edencrew_assignment_starter/presentation/app/app_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

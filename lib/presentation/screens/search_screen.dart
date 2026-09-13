@@ -6,7 +6,6 @@ import 'package:edencrew_assignment_starter/presentation/widgets/favorite_button
 import 'package:edencrew_assignment_starter/presentation/widgets/favorite_toast.dart';
 import 'package:edencrew_assignment_starter/presentation/widgets/highlighted_text.dart';
 import 'package:edencrew_assignment_starter/presentation/widgets/stock_subtitle.dart';
-import 'package:edencrew_assignment_starter/theme/app_typography.dart';
 import 'package:edencrew_assignment_starter/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -75,7 +74,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
     return results.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (_, __) => EmptyState(
+      error: (_, _) => EmptyState(
         icon: Icons.search_off_rounded,
         title: '검색 결과가 없습니다',
         subtitle: "'$query'와 일치하는 검색 결과를 찾지 못했습니다.",
@@ -91,7 +90,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
         return ListView.separated(
           itemCount: items.length,
-          separatorBuilder: (_, __) => Divider(
+          separatorBuilder: (_, _) => Divider(
             height: 1,
             color: context.colors.borderSubtle,
             indent: context.dimens.space4,

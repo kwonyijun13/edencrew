@@ -1,3 +1,4 @@
+import 'package:edencrew_assignment_starter/data/datasources/naver/naver_stock_datasource.dart';
 import 'package:flutter/material.dart';
 
 import 'theme/theme.dart';
@@ -22,8 +23,28 @@ class EdencrewAssignmentApp extends StatelessWidget {
 /// 과제 시작점입니다. 이 화면은 지우고 직접 구현한 화면으로 바꿔 주세요.
 ///
 /// 디자인 토큰을 어떻게 꺼내 쓰는지 보여주는 예시이기도 합니다.
-class StartHereScreen extends StatelessWidget {
+class StartHereScreen extends StatefulWidget {
   const StartHereScreen({super.key});
+
+  @override
+  State<StartHereScreen> createState() => _StartHereScreenState();
+}
+
+class _StartHereScreenState extends State<StartHereScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    startFunction();
+  }
+
+  void startFunction() async {
+    final datasource = NaverStockDatasource();
+    final prices = await datasource.getDailyPrices(symbol: '005930', page: 1);
+    print('Received ${prices.length} prices');
+  }
 
   @override
   Widget build(BuildContext context) {

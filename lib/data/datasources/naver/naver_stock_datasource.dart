@@ -25,14 +25,10 @@ class NaverStockDatasource {
       },
     );
     final response = await client.get(uri);
-    final json = jsonDecode(utf8.decode(response.bodyBytes));
-    final items = json['items'] ?? [];
+    final Map<String, dynamic> json = jsonDecode(utf8.decode(response.bodyBytes)); // used bodyBytes instead of body as we are expecting a UTF-8
+    final List<dynamic> items = json['items'] ?? [];
 
-    return items
-        .whereType<Map<String, dynamic>>()
-        .map(StockSearchDto.fromJson)
-        .where(_isDomesticStock)
-        .toList();
+    return items.whereType<Map<String, dynamic>>().map(StockSearchDto.fromJson).where(_isDomesticStock).toList();
   }
 
   bool _isDomesticStock(StockSearchDto stock) {
@@ -46,9 +42,9 @@ class NaverStockDatasource {
 
     final query = symbols.join(','); // 005930,000660,035720
     final uri = Uri.parse(NaverApi.realtimeBaseUrl).replace(
-        queryParameters: {
-          'query': 'SERVICE_ITEM:$query'
-        }
+      queryParameters: {
+        'query': 'SERVICE_ITEM:$query'
+      }
     );
 
     /*
@@ -73,7 +69,7 @@ class NaverStockDatasource {
     final areas = result['areas'] as List<dynamic>? ?? [];
 
     final serviceItemArea = areas.cast<Map<String, dynamic>?>().firstWhere(
-            (area) => area?['name'] == 'SERVICE_ITEM', orElse: () => null);
+        (area) => area?['name'] == 'SERVICE_ITEM', orElse: () => null);
     if (serviceItemArea == null) return [];
 
     final data = serviceItemArea['datas'] as List<dynamic>? ?? [];
@@ -105,13 +101,11 @@ class NaverStockDatasource {
     required int page,
   }) async {
     final uri = Uri.parse(NaverApi.dailyPriceBaseUrl).replace(
-        queryParameters: {
-          'code': symbol,
-          'page': page.toString()
-        }
+      queryParameters: {
+        'code': symbol,
+        'page': page.toString()
+      }
     );
-
-    // debugPrint('URL: $uri');
 
     final response = await client.get(
       uri,
